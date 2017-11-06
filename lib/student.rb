@@ -74,8 +74,6 @@ class Student
       SET name = ?, grade = ? WHERE id = ?
     SQL
 
-    DB[:conn].execute(sql, self.name, self.grade, self.id).map do |row|
-      self.new_from_db(row)
-    end
+    DB[:conn].execute(sql, self.name, self.grade, self.id)
   end
 end
